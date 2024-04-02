@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment="" />
+    <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/constants/RPanConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/exception/RPanBusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/response/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/response/ResponseCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/AES128Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/FileUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/IdUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/MessageDigestUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/PasswordUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/SpElUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/UUIDUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/web/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/web/src/main/java/com/imooc/pan/web/cors/CorsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/web/src/main/java/com/imooc/pan/web/log/HttpLogEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/web/src/main/java/com/imooc/pan/web/log/HttpLogEntityBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/web/src/main/java/com/imooc/pan/web/log/HttpLogFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/src/main/java/com/imooc/pan/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -17,19 +60,39 @@
   "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="2eVh5QuGTbMwb9iH2HE0KpIj8Mq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "1.8"
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "/Users/weileipeng/r-pan/framework/web/src/main/java/com/imooc/pan/web/log",
+    "onboarding.tips.debug.path": "/Users/weileipeng/r-pan/framework/web/src/main/java/com/imooc/pan/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "PLAIN_TEXT"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/framework/web/src/main/java/com/imooc/pan/web/log" />
+      <recent name="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -40,5 +103,19 @@
       <updated>1711995468513</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/com/imooc/pan/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

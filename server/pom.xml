@@ -4,18 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>r-pan-parent</artifactId>
         <groupId>com.imooc.pan</groupId>
+        <artifactId>r-pan-parent</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>r-pan-framework</artifactId>
-
-    <packaging>pom</packaging>
-    <modules>
-        <module>core</module>
-        <module>web</module>
-    </modules>
+    <artifactId>r-pan-server</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
