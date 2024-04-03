@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="r-pan-core" />
         <module name="r-pan-web" />
+        <module name="r-pan-swagger2" />
       </profile>
       <profile name="Annotation profile for r-pan-parent" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -30,6 +31,7 @@
       <module name="r-pan-framework" options="-parameters" />
       <module name="r-pan-parent" options="-parameters" />
       <module name="r-pan-server" options="-parameters" />
+      <module name="r-pan-swagger2" options="-parameters" />
       <module name="r-pan-web" options="-parameters" />
     </option>
   </component>
