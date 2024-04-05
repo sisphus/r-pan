@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>r-pan-web</artifactId>
-
+    <version>1.0</version>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

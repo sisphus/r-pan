@@ -9,6 +9,7 @@
         <version>2.1.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.imooc.pan</groupId>
     <artifactId>r-pan-parent</artifactId>
     <version>1.0</version>
@@ -16,6 +17,7 @@
     <description>R Pan项目服务端</description>
     <modules>
         <module>server</module>
+        <module>distribution</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>r-pan-swagger2</artifactId>
+    <version>1.0</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
