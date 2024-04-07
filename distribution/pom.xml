@@ -9,7 +9,7 @@
         <version>1.0</version>
     </parent>
 
-    <groupId>com.msb</groupId>
+    <groupId>com.imooc.pan</groupId>
     <artifactId>r-pan-distribution</artifactId>
 
     <properties>
