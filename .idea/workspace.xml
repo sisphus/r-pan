@@ -5,33 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/orm/mybatis-plus/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/orm/mybatis-plus/src/main/java/com/imooc/pan/orm/mp/generate/CodeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/orm/mybatis-plus/src/test/java/com/imooc/pan/orm/mp/generate/MpGenerateorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/orm/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/entity/RPanUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/entity/RPanUserSearchHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/mapper/RPanUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/mapper/RPanUserSearchHistoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/RPanUserSearchHistoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/RPanUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/RPanUserSearchHistoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/RPanUserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/user/RPanUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/user/RPanUserSearchHistoryMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/main/java/com/imooc/pan/cache/caffeine/config/CaffeineCacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/main/java/com/imooc/pan/cache/caffeine/config/CaffeineCacheProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/test/java/com/imooc/pan/cache/caffeine/test/CaffeineCacheSpringTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/test/java/com/imooc/pan/cache/caffeine/test/config/CaffeineCacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/test/java/com/imooc/pan/cache/caffeine/test/config/CaffeineCacheProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/test/java/com/imooc/pan/cache/caffeine/test/instance/CacheAnnotationTester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-core/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-core/src/main/java/com/imooc/pan/cache/core/constants/CacheConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/distribution/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/distribution/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/distribution/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/distribution/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/RPanServerLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/RPanServerLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/r-pan-server.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/r-pan-server.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -71,6 +60,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.MpGenerateorTest.executor": "Run",
     "Application.RPanServerLauncher.executor": "Debug",
+    "JUnit.CaffeineCacheSpringTest.executor": "Run",
     "Maven.r-pan-core [clean].executor": "Run",
     "Maven.r-pan-core [install].executor": "Run",
     "Maven.r-pan-distribution [clean].executor": "Run",
@@ -91,7 +81,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/weileipeng/r-pan/server/src/main/resources/mappers",
+    "last_opened_file_path": "/Users/weileipeng/r-pan/framework/cache/cache-caffeine/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,14 +105,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/framework/cache/cache-caffeine/src/main/resources" />
       <recent name="$PROJECT_DIR$/server/src/main/resources/mappers" />
       <recent name="$PROJECT_DIR$/framework/orm/mybatis-plus/src/main/java/com/imooc/pan/orm/mp/generate" />
       <recent name="$PROJECT_DIR$/distribution/bin" />
       <recent name="$PROJECT_DIR$/distribution/conf" />
-      <recent name="$PROJECT_DIR$/framework/web/src/main/java/com/imooc/pan/web/exception" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/log" />
+      <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/file" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.imooc.pan.cache.caffeine.test.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MpGenerateorTest">
+  <component name="RunManager" selected="JUnit.CaffeineCacheSpringTest">
     <configuration name="MpGenerateorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.imooc.pan.orm.mp.generate.MpGenerateorTest" />
       <module name="r-pan-mybatis-plus" />
@@ -149,6 +146,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CaffeineCacheSpringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="r-pan-cache-caffeine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.pan.cache.caffeine.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.imooc.pan.cache.caffeine.test" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.cache.caffeine.test.CaffeineCacheSpringTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RPanServerLauncher" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="r-pan-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.pan.server.RPanServerLauncher" />
@@ -158,6 +170,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CaffeineCacheSpringTest" />
         <item itemvalue="Application.MpGenerateorTest" />
         <item itemvalue="Application.RPanServerLauncher" />
       </list>
@@ -178,7 +191,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711995468513</updated>
-      <workItem from="1712190544894" duration="25659000" />
+      <workItem from="1712190544894" duration="33199000" />
     </task>
     <servers />
   </component>
