@@ -5,22 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/main/java/com/imooc/pan/cache/caffeine/config/CaffeineCacheConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/main/java/com/imooc/pan/cache/caffeine/config/CaffeineCacheProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/test/java/com/imooc/pan/cache/caffeine/test/CaffeineCacheSpringTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/test/java/com/imooc/pan/cache/caffeine/test/config/CaffeineCacheConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/test/java/com/imooc/pan/cache/caffeine/test/config/CaffeineCacheProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/src/test/java/com/imooc/pan/cache/caffeine/test/instance/CacheAnnotationTester.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-core/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-core/src/main/java/com/imooc/pan/cache/core/constants/CacheConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/main/java/com/imooc/pan/cache/redis/config/RedisCacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/test/java/com/imooc/pan/cache/redis/test/RedisCacheTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/test/java/com/imooc/pan/cache/redis/test/config/RedisCacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/test/java/com/imooc/pan/cache/redis/test/instance/CacheAnnotationTester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/test/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/exception/RPanFrameworkException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/schedule/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/schedule/src/main/java/com/imooc/pan/schedule/ScheduleConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/schedule/src/main/java/com/imooc/pan/schedule/ScheduleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/schedule/src/main/java/com/imooc/pan/schedule/ScheduleTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/schedule/src/main/java/com/imooc/pan/schedule/ScheduleTaskHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/schedule/src/test/java/com/imooc/pan/schedule/test/ScheduleTaskTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/schedule/src/test/java/com/imooc/pan/schedule/test/config/ScheduleTestConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/schedule/src/test/java/com/imooc/pan/schedule/test/task/SimpleScheduleTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/cache/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/cache/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +65,8 @@
     "Application.MpGenerateorTest.executor": "Run",
     "Application.RPanServerLauncher.executor": "Debug",
     "JUnit.CaffeineCacheSpringTest.executor": "Run",
+    "JUnit.RedisCacheTest.executor": "Run",
+    "JUnit.ScheduleTaskTest.executor": "Run",
     "Maven.r-pan-core [clean].executor": "Run",
     "Maven.r-pan-core [install].executor": "Run",
     "Maven.r-pan-distribution [clean].executor": "Run",
@@ -81,7 +87,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/weileipeng/r-pan/framework/cache/cache-caffeine/src/main/resources",
+    "last_opened_file_path": "/Users/weileipeng/r-pan/framework/cache/cache-redis/src/test/java/com/imooc/pan/cache/redis/test/config",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -105,21 +111,22 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/framework/cache/cache-redis/src/test/java/com/imooc/pan/cache/redis/test/config" />
       <recent name="$PROJECT_DIR$/framework/cache/cache-caffeine/src/main/resources" />
       <recent name="$PROJECT_DIR$/server/src/main/resources/mappers" />
       <recent name="$PROJECT_DIR$/framework/orm/mybatis-plus/src/main/java/com/imooc/pan/orm/mp/generate" />
       <recent name="$PROJECT_DIR$/distribution/bin" />
-      <recent name="$PROJECT_DIR$/distribution/conf" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/log" />
       <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/file" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.imooc.pan.cache.redis.test.config" />
       <recent name="com.imooc.pan.cache.caffeine.test.config" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CaffeineCacheSpringTest">
+  <component name="RunManager" selected="JUnit.ScheduleTaskTest">
     <configuration name="MpGenerateorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.imooc.pan.orm.mp.generate.MpGenerateorTest" />
       <module name="r-pan-mybatis-plus" />
@@ -161,6 +168,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RedisCacheTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="r-pan-cache-redis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.pan.cache.redis.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.imooc.pan.cache.redis.test" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.cache.redis.test.RedisCacheTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScheduleTaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="r-pan-schedule" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.pan.schedule.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.imooc.pan.schedule.test" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.schedule.test.ScheduleTaskTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RPanServerLauncher" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="r-pan-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.pan.server.RPanServerLauncher" />
@@ -170,6 +207,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ScheduleTaskTest" />
+        <item itemvalue="JUnit.RedisCacheTest" />
         <item itemvalue="JUnit.CaffeineCacheSpringTest" />
         <item itemvalue="Application.MpGenerateorTest" />
         <item itemvalue="Application.RPanServerLauncher" />
@@ -191,7 +230,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711995468513</updated>
-      <workItem from="1712190544894" duration="33199000" />
+      <workItem from="1712190544894" duration="47350000" />
     </task>
     <servers />
   </component>
