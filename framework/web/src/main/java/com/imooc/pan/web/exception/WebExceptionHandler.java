@@ -1,6 +1,7 @@
 package com.imooc.pan.web.exception;
 
 import com.imooc.pan.core.exception.RPanBusinessException;
+import com.imooc.pan.core.exception.RPanFrameworkException;
 import com.imooc.pan.core.response.R;
 import com.imooc.pan.core.response.ResponseCode;
 import org.springframework.validation.BindException;
@@ -57,6 +58,10 @@ public class WebExceptionHandler {
 
     @ExceptionHandler(value = RuntimeException.class)
     public R runtimeExceptionHandler(RuntimeException e) {
+        return R.fail(ResponseCode.ERROR.getCode(), e.getMessage());
+    }
+    @ExceptionHandler(value = RPanFrameworkException.class)
+    public R rPanFrameworkException(RuntimeException e) {
         return R.fail(ResponseCode.ERROR.getCode(), e.getMessage());
     }
 

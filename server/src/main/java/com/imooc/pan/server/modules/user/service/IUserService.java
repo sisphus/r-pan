@@ -8,6 +8,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @description 针对表【r_pan_user(用户信息表)】的数据库操作Service
 * @createDate 2024-04-06 17:54:49
 */
-public interface RPanUserService extends IService<RPanUser> {
+public interface IUserService extends IService<RPanUser> {
 
 }

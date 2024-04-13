@@ -17,9 +17,6 @@ import javax.validation.constraints.NotBlank;
 
 @SpringBootApplication(scanBasePackages = {RPanConstants.BASE_COMPONENT_SCAN_PATH})
 @ServletComponentScan(basePackages = RPanConstants.BASE_COMPONENT_SCAN_PATH)
-@RestController
-@Api("测试接口类")
-@Validated
 @MapperScan(basePackages = {RPanConstants.BASE_COMPONENT_SCAN_PATH + ".server.modules.**.mapper"})
 @EnableTransactionManagement
 public class RPanServerLauncher {
@@ -28,10 +25,6 @@ public class RPanServerLauncher {
         SpringApplication.run(RPanServerLauncher.class);
     }
 
-    @GetMapping("hello")
-    public R<String> hello(@NotBlank(message = "name can not be empty") String name) {
-        System.out.println(Thread.currentThread().getContextClassLoader());
-        return R.data("hello " + name + "! have changed !");
-    }
+
 
 }

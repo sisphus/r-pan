@@ -5,26 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/main/java/com/imooc/pan/cache/redis/config/RedisCacheConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/test/java/com/imooc/pan/cache/redis/test/RedisCacheTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/test/java/com/imooc/pan/cache/redis/test/config/RedisCacheConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/test/java/com/imooc/pan/cache/redis/test/instance/CacheAnnotationTester.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/cache/cache-redis/src/test/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/exception/RPanFrameworkException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/schedule/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/schedule/src/main/java/com/imooc/pan/schedule/ScheduleConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/schedule/src/main/java/com/imooc/pan/schedule/ScheduleManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/schedule/src/main/java/com/imooc/pan/schedule/ScheduleTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/schedule/src/main/java/com/imooc/pan/schedule/ScheduleTaskHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/schedule/src/test/java/com/imooc/pan/schedule/test/ScheduleTaskTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/schedule/src/test/java/com/imooc/pan/schedule/test/config/ScheduleTestConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/schedule/src/test/java/com/imooc/pan/schedule/test/task/SimpleScheduleTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po/UserRegisterPO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/cache/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/cache/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/web/src/main/java/com/imooc/pan/web/exception/WebExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/web/src/main/java/com/imooc/pan/web/exception/WebExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/RPanServerLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/RPanServerLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/RPanUserSearchHistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/IUserSearchHistoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/RPanUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/RPanUserSearchHistoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/UserSearchHistoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/RPanUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +220,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711995468513</updated>
-      <workItem from="1712190544894" duration="47350000" />
+      <workItem from="1712190544894" duration="52243000" />
     </task>
     <servers />
   </component>
