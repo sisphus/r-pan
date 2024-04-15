@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment=" working on user register">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/utils/UserIdUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/constants/UserConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/context/UserLoginContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po/UserLoginPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/annotation/LoginIgnore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/aspect/CommonLoginAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/converter/UserConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/converter/UserConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po/UserRegisterPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po/UserRegisterPO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/user/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/user/UserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/user/converter/UserConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/user/converter/UserConverterImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,13 +71,18 @@
     "Maven.r-pan-swagger2 [install].executor": "Run",
     "Maven.r-pan-web [clean].executor": "Run",
     "Maven.r-pan-web [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.RPanServerLauncher.executor": "Run",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/weileipeng/r-pan/server/src/main/java/com/imooc/pan/server/common/utils",
+    "last_opened_file_path": "/Users/weileipeng/r-pan/server/src/main/java/com/imooc/pan/server/common/aspect",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -112,11 +109,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/aspect" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/annotation" />
       <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/utils" />
       <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/constants" />
       <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/context" />
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po" />
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/enums" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/log" />
@@ -127,7 +124,7 @@
       <recent name="com.imooc.pan.cache.caffeine.test.config" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserTest.exitSuccess">
+  <component name="RunManager" selected="Spring Boot.RPanServerLauncher">
     <configuration name="CaffeineCacheSpringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="r-pan-cache-caffeine" />
       <extension name="coverage">
@@ -236,7 +233,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711995468513</updated>
-      <workItem from="1712190544894" duration="74933000" />
+      <workItem from="1712190544894" duration="80085000" />
     </task>
     <task id="LOCAL-00001" summary=" working on user register">
       <option name="closed" value="true" />

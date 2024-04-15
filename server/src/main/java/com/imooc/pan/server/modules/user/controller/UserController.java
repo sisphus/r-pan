@@ -2,6 +2,7 @@ package com.imooc.pan.server.modules.user.controller;
 
 import com.imooc.pan.core.response.R;
 import com.imooc.pan.core.utils.IdUtil;
+import com.imooc.pan.server.common.annotation.LoginIgnore;
 import com.imooc.pan.server.common.utils.UserIdUtil;
 import com.imooc.pan.server.modules.user.context.UserLoginContext;
 import com.imooc.pan.server.modules.user.context.UserRegisterContext;
@@ -37,6 +38,7 @@ public class UserController {
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
+    @LoginIgnore
     @PostMapping("register")
     public R register(@Validated @RequestBody UserRegisterPO userRegisterPO){
         UserRegisterContext userRegisterContext = userConverter.userRegisterPO2UserRegisterContext(userRegisterPO);
@@ -50,6 +52,7 @@ public class UserController {
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
+    @LoginIgnore
     @PostMapping("login")
     public R login(@Validated @RequestBody UserLoginPO userLoginPO) {
         UserLoginContext userLoginContext = userConverter.userLoginPO2UserLoginContext(userLoginPO);

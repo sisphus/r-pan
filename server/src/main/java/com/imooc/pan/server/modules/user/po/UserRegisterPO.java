@@ -19,21 +19,21 @@ public class UserRegisterPO implements Serializable {
 
     @ApiModelProperty(value = "用户名", required = true)
     @NotBlank(message = "用户名不能为空")
-    @Pattern(regexp = "^[0-9A-Za-z]{6,16}$", message = "请输入6-16位只包含数字和字母的用户名")
+    @Pattern(regexp = "^[0-9A-Za-z]{6,16}$", message = "Please enter a username containing 6-16 characters, using only letters and numbers.")
     private String username;
 
     @ApiModelProperty(value = "密码", required = true)
     @NotBlank(message = "密码不能为空")
-    @Length(min = 8, max = 16, message = "请输入8-16位的密码")
+    @Length(min = 8, max = 16, message = "Please enter a password that is 8-16 characters long.")
     private String password;
 
     @ApiModelProperty(value = "密码问题", required = true)
     @NotBlank(message = "密保问题不能为空")
-    @Length(max = 100, message = "密保问题不能超过100个字符")
+    @Length(max = 100, message = "The security question must not exceed 100 characters.")
     private String question;
 
     @ApiModelProperty(value = "密码答案", required = true)
     @NotBlank(message = "密保答案不能为空")
-    @Length(max = 100, message = "密保答案不能超过100个字符")
+    @Length(max = 100, message = "The security answer must not exceed 100 characters.")
     private String answer;
 }
