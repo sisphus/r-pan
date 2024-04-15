@@ -31,14 +31,14 @@ public interface UserConverter {
     @Mapping(target = "password", ignore = true)
     RPanUser userRegisterContext2RPanUser(UserRegisterContext userRegisterContext);
 
-//    /**
-//     * UserLoginPO转UserLoginContext
-//     *
-//     * @param userLoginPO
-//     * @return
-//     */
-//    UserLoginContext userLoginPO2UserLoginContext(UserLoginPO userLoginPO);
-//
+    /**
+     * UserLoginPO转UserLoginContext
+     *
+     * @param userLoginPO
+     * @return
+     */
+    UserLoginContext userLoginPO2UserLoginContext(UserLoginPO userLoginPO);
+
 //    /**
 //     * CheckUsernamePO转CheckUsernameContext
 //     *

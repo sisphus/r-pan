@@ -2,9 +2,13 @@ package com.imooc.pan.server.modules.user;
 
 import cn.hutool.core.lang.Assert;
 import com.imooc.pan.core.exception.RPanBusinessException;
+import com.imooc.pan.core.utils.JwtUtil;
 import com.imooc.pan.server.RPanServerLauncher;
+import com.imooc.pan.server.modules.user.constants.UserConstants;
+import com.imooc.pan.server.modules.user.context.UserLoginContext;
 import com.imooc.pan.server.modules.user.context.UserRegisterContext;
 import com.imooc.pan.server.modules.user.service.IUserService;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,12 +39,74 @@ public class UserTest {
     /**
      * 测试重复用户名称注册幂等
      */
-    @Test(expected = RPanBusinessException.class)
+    @Test(expected = RPanBusinessException.class) //期待的异常值
     public void testRegisterDuplicateUsername() {
         UserRegisterContext context = createUserRegisterContext();
         Long register = iUserService.register(context);
         Assert.isTrue(register.longValue() > 0L);
         iUserService.register(context);
+    }
+
+    /**
+     * 测试登陆成功
+     */
+    @Test
+    public void loginSuccess() {
+        UserRegisterContext context = createUserRegisterContext();
+        Long register = iUserService.register(context);
+        Assert.isTrue(register.longValue() > 0L);
+
+        UserLoginContext userLoginContext = createUserLoginContext();
+        String accessToken = iUserService.login(userLoginContext);
+
+        Assert.isTrue(StringUtils.isNotBlank(accessToken));
+    }
+
+    /**
+     * 测试登录失败：用户名不正确
+     */
+    @Test(expected = RPanBusinessException.class)
+    public void wrongUsername() {
+        UserRegisterContext context = createUserRegisterContext();
+        Long register = iUserService.register(context);
+        Assert.isTrue(register.longValue() > 0L);
+
+        UserLoginContext userLoginContext = createUserLoginContext();
+        userLoginContext.setUsername(userLoginContext.getUsername() + "_change");
+        iUserService.login(userLoginContext);
+    }
+
+    /**
+     * 测试登录失败：密码不正确
+     */
+    @Test(expected = RPanBusinessException.class)
+    public void wrongPassword() {
+        UserRegisterContext context = createUserRegisterContext();
+        Long register = iUserService.register(context);
+        Assert.isTrue(register.longValue() > 0L);
+
+        UserLoginContext userLoginContext = createUserLoginContext();
+        userLoginContext.setPassword(userLoginContext.getPassword() + "_change");
+        iUserService.login(userLoginContext);
+    }
+
+    /**
+     * 用户成功登出
+     */
+    @Test
+    public void exitSuccess() {
+        UserRegisterContext context = createUserRegisterContext();
+        Long register = iUserService.register(context);
+        Assert.isTrue(register.longValue() > 0L);
+
+        UserLoginContext userLoginContext = createUserLoginContext();
+        String accessToken = iUserService.login(userLoginContext);
+
+        Assert.isTrue(StringUtils.isNotBlank(accessToken));
+
+        Long userId = (Long) JwtUtil.analyzeToken(accessToken, UserConstants.LOGIN_USER_ID);
+
+        iUserService.exit(userId);
     }
 
 
@@ -64,5 +130,19 @@ public class UserTest {
         context.setAnswer(ANSWER);
         return context;
     }
+
+    /**
+     * 构建用户登录上下文实体
+     *
+     * @return
+     */
+    private UserLoginContext createUserLoginContext() {
+        UserLoginContext userLoginContext = new UserLoginContext();
+        userLoginContext.setUsername(USERNAME);
+        userLoginContext.setPassword(PASSWORD);
+        return userLoginContext;
+    }
+
+
 
 }
