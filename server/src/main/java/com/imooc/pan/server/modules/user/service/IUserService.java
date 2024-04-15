@@ -1,5 +1,6 @@
 package com.imooc.pan.server.modules.user.service;
 
+import com.imooc.pan.server.modules.user.context.UserRegisterContext;
 import com.imooc.pan.server.modules.user.entity.RPanUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -9,5 +10,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2024-04-06 17:54:49
 */
 public interface IUserService extends IService<RPanUser> {
+    /*
+     用户注册业务
+     */
 
+    Long register(UserRegisterContext userRegisterContext);
 }
