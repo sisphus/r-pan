@@ -2,6 +2,7 @@ package com.imooc.pan.server.modules.user.mapper;
 
 import com.imooc.pan.server.modules.user.entity.RPanUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import io.lettuce.core.dynamic.annotation.Param;
 
 /**
 * @author weileipeng
@@ -11,6 +12,13 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface RPanUserMapper extends BaseMapper<RPanUser> {
 
+    /**
+     * 通过用户名称查询用户设置的密保问题
+     * 在xml中写查询语句
+     * @param username
+     * @return
+     */
+    String selectQuestionByUsername(@Param("username") String username);
 }
 
 

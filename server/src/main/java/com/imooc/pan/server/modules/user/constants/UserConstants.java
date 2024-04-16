@@ -2,6 +2,7 @@ package com.imooc.pan.server.modules.user.constants;
 
 /**
  * 用户模块的常量类
+ *
  */
 public interface UserConstants {
 

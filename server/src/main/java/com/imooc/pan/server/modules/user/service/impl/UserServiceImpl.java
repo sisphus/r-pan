@@ -10,14 +10,16 @@ import com.imooc.pan.core.utils.JwtUtil;
 import com.imooc.pan.core.utils.PasswordUtil;
 import com.imooc.pan.server.modules.file.constants.FileConstants;
 import com.imooc.pan.server.modules.file.context.CreateFolderContext;
+import com.imooc.pan.server.modules.file.entity.RPanUserFile;
 import com.imooc.pan.server.modules.file.service.IUserFileService;
 import com.imooc.pan.server.modules.user.constants.UserConstants;
-import com.imooc.pan.server.modules.user.context.UserLoginContext;
-import com.imooc.pan.server.modules.user.context.UserRegisterContext;
+import com.imooc.pan.server.modules.user.context.*;
 import com.imooc.pan.server.modules.user.converter.UserConverter;
 import com.imooc.pan.server.modules.user.entity.RPanUser;
 import com.imooc.pan.server.modules.user.service.IUserService;
 import com.imooc.pan.server.modules.user.mapper.RPanUserMapper;
+import com.imooc.pan.server.modules.user.vo.UserInfoVO;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -106,6 +108,95 @@ public class UserServiceImpl extends ServiceImpl<RPanUserMapper, RPanUser> imple
         }
     }
 
+    /**
+     * 用户忘记密码-校验用户名称
+     *
+     * @param checkUsernameContext
+     * @return
+     */
+    @Override
+    public String checkUsername(CheckUsernameContext checkUsernameContext) {
+        String question = baseMapper.selectQuestionByUsername(checkUsernameContext.getUsername());
+        if (StringUtils.isBlank(question)) {
+            throw new RPanBusinessException("没有此用户");
+        }
+        return question;
+    }
+
+
+    /**
+     * 用户忘记密码-校验密保答案
+     *
+     * @param checkAnswerContext
+     * @return
+     */
+    @Override
+    public String checkAnswer(CheckAnswerContext checkAnswerContext) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("username", checkAnswerContext.getUsername());
+        queryWrapper.eq("question", checkAnswerContext.getQuestion());
+        queryWrapper.eq("answer", checkAnswerContext.getAnswer());
+        int count = count(queryWrapper);
+
+        if (count == 0) {
+            throw new RPanBusinessException("密保答案错误");
+        }
+
+        return generateCheckAnswerToken(checkAnswerContext);
+    }
+
+    /**
+     * 重置用户密码
+     * 1、校验token是不是有效
+     * 2、重置密码
+     *
+     * @param resetPasswordContext
+     */
+    @Override
+    public void resetPassword(ResetPasswordContext resetPasswordContext) {
+        checkForgetPasswordToken(resetPasswordContext);
+        checkAndResetUserPassword(resetPasswordContext);
+    }
+
+    /**
+     * 在线修改密码
+     * 1、校验旧密码
+     * 2、重置新密码
+     * 3、退出当前的登录状态
+     *
+     * @param changePasswordContext
+     */
+    @Override
+    public void changePassword(ChangePasswordContext changePasswordContext) {
+        checkOldPassword(changePasswordContext);
+        doChangePassword(changePasswordContext);
+        exitLoginStatus(changePasswordContext);
+    }
+
+    /**
+     * 查询在线用户的基本信息
+     * 1、查询用户的基本信息实体
+     * 2、查询用户的根文件夹信息
+     * 3、拼装VO对象返回
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public UserInfoVO info(Long userId) {
+        RPanUser entity = getById(userId);
+        if (Objects.isNull(entity)) {
+            throw new RPanBusinessException("用户信息查询失败");
+        }
+
+        RPanUserFile rPanUserFile = getUserRootFileInfo(userId);
+        if (Objects.isNull(rPanUserFile)) {
+            throw new RPanBusinessException("查询用户根文件夹信息失败");
+        }
+
+        return userConverter.assembleUserInfoVO(entity, rPanUserFile);
+    }
+
     /************************************************private************************************************/
 
     /**
@@ -142,7 +233,7 @@ public class UserServiceImpl extends ServiceImpl<RPanUserMapper, RPanUser> imple
 
     /**
      * 实现注册用户的业务
-     * 需要捕获数据库的唯一索引冲突异常，来实现全局用户名称唯一
+     * 需要捕获数据库的唯一索引冲突异常，来实现全局用户名称唯一!
      *
      * @param userRegisterContext
      */
@@ -212,6 +303,118 @@ public class UserServiceImpl extends ServiceImpl<RPanUserMapper, RPanUser> imple
 
         userLoginContext.setAccessToken(accessToken);
     }
+
+    /**
+     * 生成用户忘记密码-校验密保答案通过的临时token
+     * token的失效时间为五分钟之后
+     *
+     * @param checkAnswerContext
+     * @return
+     */
+    private String generateCheckAnswerToken(CheckAnswerContext checkAnswerContext) {
+        String token = JwtUtil.generateToken(checkAnswerContext.getUsername(), UserConstants.FORGET_USERNAME, checkAnswerContext.getUsername(), UserConstants.FIVE_MINUTES_LONG);
+        return token;
+    }
+
+    /**
+     * 验证忘记密码的token是否有效
+     *
+     * @param resetPasswordContext
+     */
+    private void checkForgetPasswordToken(ResetPasswordContext resetPasswordContext) {
+        String token = resetPasswordContext.getToken();
+        Object value = JwtUtil.analyzeToken(token, UserConstants.FORGET_USERNAME);
+        if (Objects.isNull(value)) {
+            throw new RPanBusinessException(ResponseCode.TOKEN_EXPIRE);
+        }
+        String tokenUsername = String.valueOf(value);
+        if (!Objects.equals(tokenUsername, resetPasswordContext.getUsername())) {
+            throw new RPanBusinessException("token错误");
+        }
+    }
+
+    /**
+     * 校验用户信息并重置用户密码
+     *
+     * @param resetPasswordContext
+     */
+    private void checkAndResetUserPassword(ResetPasswordContext resetPasswordContext) {
+        String username = resetPasswordContext.getUsername();
+        String password = resetPasswordContext.getPassword();
+        RPanUser entity = getRPanUserByUsername(username);
+        if (Objects.isNull(entity)) {
+            throw new RPanBusinessException("用户信息不存在");
+        }
+
+        String newDbPassword = PasswordUtil.encryptPassword(entity.getSalt(), password);
+        entity.setPassword(newDbPassword);
+        entity.setUpdateTime(new Date());
+
+        if (!updateById(entity)) {
+            throw new RPanBusinessException("重置用户密码失败");
+        }
+    }
+
+    /**
+     * 校验用户的旧密码
+     * 改不周会查询并封装用户的实体信息到上下文对象中
+     *
+     * @param changePasswordContext
+     */
+    private void checkOldPassword(ChangePasswordContext changePasswordContext) {
+        Long userId = changePasswordContext.getUserId();
+        String oldPassword = changePasswordContext.getOldPassword();
+
+        RPanUser entity = getById(userId);
+        if (Objects.isNull(entity)) {
+            throw new RPanBusinessException("用户信息不存在");
+        }
+        changePasswordContext.setEntity(entity);
+
+        String encOldPassword = PasswordUtil.encryptPassword(entity.getSalt(), oldPassword);
+        String dbOldPassword = entity.getPassword();
+        if (!Objects.equals(encOldPassword, dbOldPassword)) {
+            throw new RPanBusinessException("旧密码不正确");
+        }
+    }
+    /**
+     * 修改新密码
+     *
+     * @param changePasswordContext
+     */
+    private void doChangePassword(ChangePasswordContext changePasswordContext) {
+        String newPassword = changePasswordContext.getNewPassword();
+        RPanUser entity = changePasswordContext.getEntity();
+        String salt = entity.getSalt();
+
+        String encNewPassword = PasswordUtil.encryptPassword(salt, newPassword);
+
+        entity.setPassword(encNewPassword);
+
+        if (!updateById(entity)) {
+            throw new RPanBusinessException("修改用户密码失败");
+        }
+    }
+
+    /**
+     * 退出用户的登录状态
+     *
+     * @param changePasswordContext
+     */
+    private void exitLoginStatus(ChangePasswordContext changePasswordContext) {
+        exit(changePasswordContext.getUserId());
+    }
+
+    /**
+     * 获取用户根文件夹信息实体
+     *
+     * @param userId
+     * @return
+     */
+    private RPanUserFile getUserRootFileInfo(Long userId) {
+        return iUserFileService.getUserRootFile(userId);
+    }
+
 
 }
 
