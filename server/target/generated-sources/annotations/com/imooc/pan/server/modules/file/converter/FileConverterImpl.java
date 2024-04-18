@@ -2,16 +2,18 @@ package com.imooc.pan.server.modules.file.converter;
 
 import com.imooc.pan.server.modules.file.context.CreateFolderContext;
 import com.imooc.pan.server.modules.file.context.DeleteFileContext;
+import com.imooc.pan.server.modules.file.context.SecUploadFileContext;
 import com.imooc.pan.server.modules.file.context.UpdateFilenameContext;
 import com.imooc.pan.server.modules.file.po.CreateFolderPO;
 import com.imooc.pan.server.modules.file.po.DeleteFilePO;
+import com.imooc.pan.server.modules.file.po.SecUploadFilePO;
 import com.imooc.pan.server.modules.file.po.UpdateFilenamePO;
 import javax.annotation.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-17T18:50:46-0700",
+    date = "2024-04-18T02:07:27-0700",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 1.8.0_402 (Amazon.com Inc.)"
 )
 @Component
@@ -60,5 +62,22 @@ public class FileConverterImpl implements FileConverter {
         deleteFileContext.setUserId( com.imooc.pan.server.common.utils.UserIdUtil.get() );
 
         return deleteFileContext;
+    }
+
+    @Override
+    public SecUploadFileContext secUploadFilePO2SecUploadFileContext(SecUploadFilePO secUploadFilePO) {
+        if ( secUploadFilePO == null ) {
+            return null;
+        }
+
+        SecUploadFileContext secUploadFileContext = new SecUploadFileContext();
+
+        secUploadFileContext.setFilename( secUploadFilePO.getFilename() );
+        secUploadFileContext.setIdentifier( secUploadFilePO.getIdentifier() );
+
+        secUploadFileContext.setParentId( com.imooc.pan.core.utils.IdUtil.decrypt(secUploadFilePO.getParentId()) );
+        secUploadFileContext.setUserId( com.imooc.pan.server.common.utils.UserIdUtil.get() );
+
+        return secUploadFileContext;
     }
 }

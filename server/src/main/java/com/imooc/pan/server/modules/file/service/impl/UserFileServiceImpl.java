@@ -1,24 +1,29 @@
 package com.imooc.pan.server.modules.file.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.imooc.pan.core.constants.RPanConstants;
 import com.imooc.pan.core.exception.RPanBusinessException;
+import com.imooc.pan.core.utils.FileUtils;
 import com.imooc.pan.core.utils.IdUtil;
 import com.imooc.pan.server.common.event.file.DeleteFileEvent;
 import com.imooc.pan.server.modules.file.constants.FileConstants;
-import com.imooc.pan.server.modules.file.context.CreateFolderContext;
-import com.imooc.pan.server.modules.file.context.DeleteFileContext;
-import com.imooc.pan.server.modules.file.context.QueryFileListContext;
-import com.imooc.pan.server.modules.file.context.UpdateFilenameContext;
+import com.imooc.pan.server.modules.file.context.*;
+import com.imooc.pan.server.modules.file.entity.RPanFile;
 import com.imooc.pan.server.modules.file.entity.RPanUserFile;
 import com.imooc.pan.server.modules.file.enums.DelFlagEnum;
+import com.imooc.pan.server.modules.file.enums.FileTypeEnum;
 import com.imooc.pan.server.modules.file.enums.FolderFlagEnum;
+import com.imooc.pan.server.modules.file.service.IFileService;
 import com.imooc.pan.server.modules.file.service.IUserFileService;
 import com.imooc.pan.server.modules.file.mapper.RPanUserFileMapper;
 import com.imooc.pan.server.modules.file.vo.RPanUserFileVO;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
@@ -34,11 +39,13 @@ import java.util.stream.Collectors;
 * @description 针对表【r_pan_user_file(用户文件信息表)】的数据库操作Service实现
 * @createDate 2024-04-06 18:02:17
 */
-@Service
+@Service(value = "userFileService")
 public class UserFileServiceImpl extends ServiceImpl<RPanUserFileMapper, RPanUserFile> implements IUserFileService, ApplicationContextAware  {
 
 
 
+    @Autowired
+    private IFileService iFileService;
     private ApplicationContext applicationContext;
 
     @Override
@@ -120,6 +127,48 @@ public class UserFileServiceImpl extends ServiceImpl<RPanUserFileMapper, RPanUse
         doDeleteFile(context);
         afterFileDelete(context);
     }
+
+    /**
+     * 文件秒传功能
+     * <p>
+     * 1、判断用户之前是否上传过该文件
+     * 2、如果上传过该文件，只需要生成一个该文件和当前用户在指定文件夹下面的关联关系即可,这就是秒传的秘诀
+     *
+     * @param context
+     * @return true 代表用户之前上传过相同文件并成功挂在了关联关系 false 用户没有上传过该文件，请手动执行上传逻辑
+     */
+    @Override
+    public boolean secUpload(SecUploadFileContext context) {
+//        List<RPanFile> fileList = getFileListByUserIdAndIdentifier(context.getUserId(), context.getIdentifier());
+//        if (CollectionUtils.isNotEmpty(fileList)) {
+//            RPanFile record = fileList.get(RPanConstants.ZERO_INT);
+//            saveUserFile(context.getParentId(),
+//                    context.getFilename(),
+//                    FolderFlagEnum.NO,
+//                    FileTypeEnum.getFileTypeCode(FileUtils.getFileSuffix(context.getFilename())),
+//                    record.getFileId(),
+//                    context.getUserId(),
+//                    record.getFileSizeDesc());
+//            return true;
+//        }
+        RPanFile record = getFileListByUserIdAndIdentifier(context.getUserId(), context.getIdentifier());
+        if(Objects.isNull(record)){
+            return false;
+        }
+
+        saveUserFile(context.getParentId(),
+                context.getFilename(),
+                FolderFlagEnum.NO,
+                FileTypeEnum.getFileTypeCode(FileUtils.getFileSuffix(context.getFilename())),
+                record.getFileId(),
+                context.getUserId(),
+                record.getFileSizeDesc());
+
+        return true;
+    }
+
+
+
     /*****************private*******************/
 
     /**
@@ -375,6 +424,30 @@ public class UserFileServiceImpl extends ServiceImpl<RPanUserFileMapper, RPanUse
         DeleteFileEvent deleteFileEvent = new DeleteFileEvent(this,context.getFileIdList());
        // producer.sendMessage(PanChannels.DELETE_FILE_OUTPUT, deleteFileEvent);
         applicationContext.publishEvent(deleteFileEvent);
+    }
+
+    /**
+     * 查询用户文件列表根据文件的唯一标识
+     *
+     * @param userId
+     * @param identifier
+     * @return
+     */
+//    private List<RPanFile> getFileListByUserIdAndIdentifier(Long userId, String identifier) {
+//        QueryRealFileListContext context = new QueryRealFileListContext();
+//        context.setUserId(userId);
+//        context.setIdentifier(identifier);
+//        return iFileService.getFileList(context);
+//    }
+    private RPanFile getFileListByUserIdAndIdentifier(Long userId, String identifier) {
+        QueryWrapper queryWrapper = Wrappers.query();
+        queryWrapper.eq("create_user",userId);
+        queryWrapper.eq("identifier",identifier);
+        List<RPanFile> records = iFileService.list(queryWrapper);
+        if(CollectionUtils.isEmpty(records)){
+            return null;
+        }
+        return records.get(RPanConstants.ZERO_INT);
     }
 
 }

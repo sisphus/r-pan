@@ -17,6 +17,7 @@
         <module>web</module>
         <module>swagger2</module>
         <module>schedule</module>
+        <module>storage-engine</module>
     </modules>
 
     <properties>
