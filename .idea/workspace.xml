@@ -5,28 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment=" working on user register">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/context/ChangePasswordContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/context/CheckAnswerContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/context/CheckUsernameContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/context/ResetPasswordContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po/ChangePasswordPO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po/CheckAnswerPO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po/CheckUsernamePO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po/ResetPasswordPO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/vo/UserInfoVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/vo/UserSearchHistoryVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event/file/DeleteFileEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/DeleteFileContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/QueryFileListContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/UpdateFilenameContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/controller/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/converter/FileConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/CreateFolderPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/DeleteFilePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/UpdateFilenamePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/vo/RPanUserFileVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/file/FileTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/file/converter/FileConverterImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/cache/cache-caffeine/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/framework/cache/cache-caffeine/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/mapper/RPanUserFileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/mapper/RPanUserFileMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IUserFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IUserFileService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/UserFileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/UserFileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/constants/UserConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/constants/UserConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/converter/UserConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/converter/UserConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/mapper/RPanUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/mapper/RPanUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/mappers/user/RPanUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/user/RPanUserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/user/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/user/UserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/mappers/user/RPanUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/mappers/user/RPanUserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/mappers/file/RPanUserFileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/file/RPanUserFileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/mappers/file/RPanUserFileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/mappers/file/RPanUserFileMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/user/converter/UserConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/user/converter/UserConverterImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +65,8 @@
     "Application.MpGenerateorTest.executor": "Run",
     "Application.RPanServerLauncher.executor": "Debug",
     "JUnit.CaffeineCacheSpringTest.executor": "Run",
+    "JUnit.FileTest.executor": "Debug",
+    "JUnit.FileTest.testCreateFolderSuccess.executor": "Debug",
     "JUnit.RedisCacheTest.executor": "Run",
     "JUnit.ScheduleTaskTest.executor": "Run",
     "JUnit.UserTest.checkAnswerFail.executor": "Debug",
@@ -102,7 +101,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/weileipeng/r-pan/server/src/main/java/com/imooc/pan/server/modules/user/vo",
+    "last_opened_file_path": "/Users/weileipeng/r-pan/server/src/main/java/com/imooc/pan/server/common/event/file",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -129,11 +128,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/vo" />
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/context" />
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/po" />
-      <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/user" />
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/aspect" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event/file" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/vo" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/converter" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/log" />
@@ -144,7 +143,38 @@
       <recent name="com.imooc.pan.cache.caffeine.test.config" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserTest.testQueryUserInfo">
+  <component name="RunManager" selected="JUnit.FileTest">
+    <configuration name="FileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="r-pan-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.pan.server.modules.file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.file" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.file.FileTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileTest.testCreateFolderSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="r-pan-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.pan.server.modules.file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.file" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.file.FileTest" />
+      <option name="METHOD_NAME" value="testCreateFolderSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="r-pan-server" />
       <extension name="coverage">
@@ -176,38 +206,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserTest.checkAnswerSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="r-pan-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.imooc.pan.server.modules.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.user" />
-      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.user.UserTest" />
-      <option name="METHOD_NAME" value="checkAnswerSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserTest.checkUsernameSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="r-pan-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.imooc.pan.server.modules.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.user" />
-      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.user.UserTest" />
-      <option name="METHOD_NAME" value="checkUsernameSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserTest.testQueryUserInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="r-pan-server" />
       <extension name="coverage">
@@ -233,11 +231,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FileTest" />
+        <item itemvalue="JUnit.FileTest.testCreateFolderSuccess" />
         <item itemvalue="JUnit.UserTest.testQueryUserInfo" />
         <item itemvalue="JUnit.UserTest" />
         <item itemvalue="JUnit.UserTest.checkAnswerFail" />
-        <item itemvalue="JUnit.UserTest.checkAnswerSuccess" />
-        <item itemvalue="JUnit.UserTest.checkUsernameSuccess" />
       </list>
     </recent_temporary>
   </component>
@@ -256,7 +254,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711995468513</updated>
-      <workItem from="1712190544894" duration="90208000" />
+      <workItem from="1712190544894" duration="105271000" />
     </task>
     <task id="LOCAL-00001" summary=" working on user register">
       <option name="closed" value="true" />
