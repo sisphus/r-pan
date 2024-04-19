@@ -29,6 +29,11 @@
             <version>1.0</version>
         </dependency>
         <dependency>
+            <groupId>com.imooc.pan</groupId>
+            <artifactId>r-pan-storage-engine-core</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>1.5.14</version>
@@ -56,6 +61,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.imooc.pan</groupId>
+            <artifactId>r-pan-storage-engine-local</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
 

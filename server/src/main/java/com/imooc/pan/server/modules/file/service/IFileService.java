@@ -1,5 +1,6 @@
 package com.imooc.pan.server.modules.file.service;
 
+import com.imooc.pan.server.modules.file.context.FileSaveContext;
 import com.imooc.pan.server.modules.file.entity.RPanFile;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -10,4 +11,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface IFileService extends IService<RPanFile> {
 
+    void saveFile(FileSaveContext fileSaveContext);
 }

@@ -9,10 +9,7 @@ import com.imooc.pan.server.modules.file.constants.FileConstants;
 import com.imooc.pan.server.modules.file.context.*;
 import com.imooc.pan.server.modules.file.converter.FileConverter;
 import com.imooc.pan.server.modules.file.enums.DelFlagEnum;
-import com.imooc.pan.server.modules.file.po.CreateFolderPO;
-import com.imooc.pan.server.modules.file.po.DeleteFilePO;
-import com.imooc.pan.server.modules.file.po.SecUploadFilePO;
-import com.imooc.pan.server.modules.file.po.UpdateFilenamePO;
+import com.imooc.pan.server.modules.file.po.*;
 import com.imooc.pan.server.modules.file.service.IFileService;
 import com.imooc.pan.server.modules.file.service.IUserFileService;
 import com.imooc.pan.server.modules.file.service.impl.FileServiceImpl;
@@ -134,18 +131,18 @@ public class FileController {
         return R.fail("文件唯一标识不存在，请手动执行文件上传");
     }
 
-//    @ApiOperation(
-//            value = "单文件上传",
-//            notes = "该接口提供了单文件上传的功能",
-//            consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
-//            produces = MediaType.APPLICATION_JSON_UTF8_VALUE
-//    )
-//    @PostMapping("file/upload")
-//    public R upload(@Validated FileUploadPO fileUploadPO) {
-//        FileUploadContext context = fileConverter.fileUploadPO2FileUploadContext(fileUploadPO);
-//        iUserFileService.upload(context);
-//        return R.success();
-//    }
+    @ApiOperation(
+            value = "单文件上传",
+            notes = "该接口提供了单文件上传的功能",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE
+    )
+    @PostMapping("file/upload")
+    public R upload(@Validated FileUploadPO fileUploadPO) {
+        FileUploadContext context = fileConverter.fileUploadPO2FileUploadContext(fileUploadPO);
+        iUserFileService.upload(context);
+        return R.success();
+    }
 //
 //    @ApiOperation(
 //            value = "文件分片上传",

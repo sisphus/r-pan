@@ -102,7 +102,7 @@ public class FileUtils {
     /**
      * 将文件的输入流写入到文件中
      * 使用底层的sendfile零拷贝来提高传输效率
-     *
+     *  核心
      * @param inputStream
      * @param targetFile
      * @param totalSize
@@ -110,8 +110,11 @@ public class FileUtils {
     public static void writeStream2File(InputStream inputStream, File targetFile, Long totalSize) throws IOException {
         createFile(targetFile);
         RandomAccessFile randomAccessFile = new RandomAccessFile(targetFile, "rw");
+
         FileChannel outputChannel = randomAccessFile.getChannel();
+
         ReadableByteChannel inputChannel = Channels.newChannel(inputStream);
+
         outputChannel.transferFrom(inputChannel, 0L, totalSize);
         inputChannel.close();
         outputChannel.close();
