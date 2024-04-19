@@ -1,6 +1,7 @@
 package com.imooc.pan.storage.engine.core;
 
 import com.imooc.pan.storage.engine.core.context.DeleteFileContext;
+import com.imooc.pan.storage.engine.core.context.StoreFileChunkContext;
 import com.imooc.pan.storage.engine.core.context.StoreFileContext;
 
 import java.io.IOException;
@@ -26,4 +27,27 @@ public interface StorageEngine {
      */
     void delete(DeleteFileContext context) throws IOException;
 
+    /**
+     * 存储物理文件的分片
+     *
+     * @param context
+     * @throws IOException
+     */
+    void storeChunk(StoreFileChunkContext context) throws IOException;
+
+//    /**
+//     * 合并文件分片
+//     *
+//     * @param context
+//     * @throws IOException
+//     */
+//    void mergeFile(MergeFileContext context) throws IOException;
+//
+//    /**
+//     * 读取文件内容写入到输出流中
+//     *
+//     * @param context
+//     * @throws IOException
+//     */
+//    void realFile(ReadFileContext context) throws IOException;
 }

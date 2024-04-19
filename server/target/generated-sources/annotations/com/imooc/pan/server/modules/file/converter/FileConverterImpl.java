@@ -2,21 +2,25 @@ package com.imooc.pan.server.modules.file.converter;
 
 import com.imooc.pan.server.modules.file.context.CreateFolderContext;
 import com.imooc.pan.server.modules.file.context.DeleteFileContext;
+import com.imooc.pan.server.modules.file.context.FileChunkSaveContext;
+import com.imooc.pan.server.modules.file.context.FileChunkUploadContext;
 import com.imooc.pan.server.modules.file.context.FileSaveContext;
 import com.imooc.pan.server.modules.file.context.FileUploadContext;
 import com.imooc.pan.server.modules.file.context.SecUploadFileContext;
 import com.imooc.pan.server.modules.file.context.UpdateFilenameContext;
 import com.imooc.pan.server.modules.file.po.CreateFolderPO;
 import com.imooc.pan.server.modules.file.po.DeleteFilePO;
+import com.imooc.pan.server.modules.file.po.FileChunkUploadPO;
 import com.imooc.pan.server.modules.file.po.FileUploadPO;
 import com.imooc.pan.server.modules.file.po.SecUploadFilePO;
 import com.imooc.pan.server.modules.file.po.UpdateFilenamePO;
+import com.imooc.pan.storage.engine.core.context.StoreFileChunkContext;
 import javax.annotation.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-18T20:47:30-0700",
+    date = "2024-04-19T00:58:57-0700",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 1.8.0_402 (Amazon.com Inc.)"
 )
 @Component
@@ -118,5 +122,65 @@ public class FileConverterImpl implements FileConverter {
         fileSaveContext.setUserId( context.getUserId() );
 
         return fileSaveContext;
+    }
+
+    @Override
+    public FileChunkUploadContext fileChunkUploadPO2FileChunkUploadContext(FileChunkUploadPO fileChunkUploadPO) {
+        if ( fileChunkUploadPO == null ) {
+            return null;
+        }
+
+        FileChunkUploadContext fileChunkUploadContext = new FileChunkUploadContext();
+
+        fileChunkUploadContext.setFilename( fileChunkUploadPO.getFilename() );
+        fileChunkUploadContext.setIdentifier( fileChunkUploadPO.getIdentifier() );
+        fileChunkUploadContext.setTotalChunks( fileChunkUploadPO.getTotalChunks() );
+        fileChunkUploadContext.setChunkNumber( fileChunkUploadPO.getChunkNumber() );
+        fileChunkUploadContext.setCurrentChunkSize( fileChunkUploadPO.getCurrentChunkSize() );
+        fileChunkUploadContext.setTotalSize( fileChunkUploadPO.getTotalSize() );
+        fileChunkUploadContext.setFile( fileChunkUploadPO.getFile() );
+
+        fileChunkUploadContext.setUserId( com.imooc.pan.server.common.utils.UserIdUtil.get() );
+
+        return fileChunkUploadContext;
+    }
+
+    @Override
+    public FileChunkSaveContext fileChunkUploadContext2FileChunkSaveContext(FileChunkUploadContext context) {
+        if ( context == null ) {
+            return null;
+        }
+
+        FileChunkSaveContext fileChunkSaveContext = new FileChunkSaveContext();
+
+        fileChunkSaveContext.setFilename( context.getFilename() );
+        fileChunkSaveContext.setIdentifier( context.getIdentifier() );
+        fileChunkSaveContext.setTotalChunks( context.getTotalChunks() );
+        fileChunkSaveContext.setChunkNumber( context.getChunkNumber() );
+        fileChunkSaveContext.setCurrentChunkSize( context.getCurrentChunkSize() );
+        fileChunkSaveContext.setTotalSize( context.getTotalSize() );
+        fileChunkSaveContext.setFile( context.getFile() );
+        fileChunkSaveContext.setUserId( context.getUserId() );
+
+        return fileChunkSaveContext;
+    }
+
+    @Override
+    public StoreFileChunkContext fileChunkSaveContext2StoreFileChunkContext(FileChunkSaveContext context) {
+        if ( context == null ) {
+            return null;
+        }
+
+        StoreFileChunkContext storeFileChunkContext = new StoreFileChunkContext();
+
+        storeFileChunkContext.setFilename( context.getFilename() );
+        storeFileChunkContext.setIdentifier( context.getIdentifier() );
+        storeFileChunkContext.setTotalSize( context.getTotalSize() );
+        storeFileChunkContext.setTotalChunks( context.getTotalChunks() );
+        storeFileChunkContext.setChunkNumber( context.getChunkNumber() );
+        storeFileChunkContext.setCurrentChunkSize( context.getCurrentChunkSize() );
+        storeFileChunkContext.setUserId( context.getUserId() );
+
+        return storeFileChunkContext;
     }
 }

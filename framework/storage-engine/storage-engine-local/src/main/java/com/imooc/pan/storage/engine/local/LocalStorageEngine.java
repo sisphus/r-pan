@@ -3,6 +3,7 @@ package com.imooc.pan.storage.engine.local;
 import com.imooc.pan.core.utils.FileUtils;
 import com.imooc.pan.storage.engine.core.AbstractStorageEngine;
 import com.imooc.pan.storage.engine.core.context.DeleteFileContext;
+import com.imooc.pan.storage.engine.core.context.StoreFileChunkContext;
 import com.imooc.pan.storage.engine.core.context.StoreFileContext;
 import com.imooc.pan.storage.engine.local.config.LocalStorageEngineConfig;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,21 @@ public class LocalStorageEngine extends AbstractStorageEngine {
     }
 
     /**
+     * 执行保存文件分片
+     * 下沉到底层去实现
+     * 这是最关键的关于分片上传的函数
+     * @param context
+     * @throws IOException
+     */
+    @Override
+    protected void doStoreChunk(StoreFileChunkContext context) throws IOException {
+        String basePath = config.getRootFileChunkPath();
+        String realFilePath = FileUtils.generateStoreFileChunkRealPath(basePath, context.getIdentifier(), context.getChunkNumber());
+        FileUtils.writeStream2File(context.getInputStream(), new File(realFilePath), context.getTotalSize());
+        context.setRealPath(realFilePath);
+    }
+
+    /**
      * 执行删除物理文件的动作
      * 下沉到子类去实现
      *
@@ -44,5 +60,6 @@ public class LocalStorageEngine extends AbstractStorageEngine {
     protected void doDelete(DeleteFileContext context) throws IOException {
         FileUtils.deleteFiles(context.getRealFilePathList());
     }
+
 
 }

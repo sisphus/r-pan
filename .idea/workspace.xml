@@ -5,34 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment=" working on user register">
-      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context/DeleteFileContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context/StoreFileContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/local/LocalStorageEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/local/config/LocalStorageEngineConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event/log/ErrorLogEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/listenner/log/ErrorLogEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileSaveContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileUploadContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/FileUploadPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context/StoreFileChunkContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/config/PanServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileChunkSaveContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileChunkUploadContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/enums/MergeFlagEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/FileChunkMergePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/FileChunkUploadPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/vo/FileChunkUploadVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/AbstractStorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/AbstractStorageEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/StorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/StorageEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-fastdfs/src/main/java/com/imooc/pan/storage/engine/fastdfs/FastDFSStorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-fastdfs/src/main/java/com/imooc/pan/storage/engine/fastdfs/FastDFSStorageEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/LocalStorageEngine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/local/LocalStorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/local/LocalStorageEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-oss/src/main/java/com/imooc/storage/engine/oss/OSSStorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-oss/src/main/java/com/imooc/storage/engine/oss/OSSStorageEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/converter/FileConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/converter/FileConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IFileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IUserFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IUserFileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/FileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/entity/RPanFileChunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/entity/RPanFileChunk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/RPanFileChunkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IFileChunkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/RPanFileChunkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/FileChunkServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/UserFileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/UserFileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/log/entity/RPanErrorLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/log/entity/RPanErrorLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/log/service/RPanErrorLogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/log/service/IErrorLogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/log/service/impl/RPanErrorLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/log/service/impl/IErrorLogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/file/FileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/file/FileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/file/converter/FileConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/file/converter/FileConverterImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/user/converter/UserConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/user/converter/UserConverterImpl.java" afterDir="false" />
     </list>
@@ -79,6 +74,7 @@
     "JUnit.FileTest.testCreateFolderSuccess.executor": "Debug",
     "JUnit.FileTest.testSecUploadFail.executor": "Debug",
     "JUnit.FileTest.testSecUploadSuccess.executor": "Debug",
+    "JUnit.FileTest.testUploadSuccess.executor": "Run",
     "JUnit.RedisCacheTest.executor": "Run",
     "JUnit.ScheduleTaskTest.executor": "Run",
     "JUnit.UserTest.checkAnswerFail.executor": "Debug",
@@ -113,7 +109,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/weileipeng/r-pan/server/src/main/java/com/imooc/pan/server/common/listenner",
+    "last_opened_file_path": "/Users/weileipeng/r-pan/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -140,11 +136,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/listenner" />
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event/file" />
+      <recent name="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context" />
+      <recent name="$PROJECT_DIR$/server/src/main/resources" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/config" />
       <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context" />
-      <recent name="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/resources/META-INF" />
-      <recent name="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/local/config" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/enums" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/log" />
@@ -268,7 +264,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711995468513</updated>
       <workItem from="1712190544894" duration="114598000" />
-      <workItem from="1713466436488" duration="12054000" />
+      <workItem from="1713466436488" duration="17209000" />
     </task>
     <task id="LOCAL-00001" summary=" working on user register">
       <option name="closed" value="true" />
