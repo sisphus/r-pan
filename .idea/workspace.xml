@@ -5,29 +5,120 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a40720b3-f6f6-48c4-b750-ab02eb2c2a3c" name="Changes" comment=" working on user register">
-      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context/StoreFileChunkContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/config/PanServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileChunkSaveContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileChunkUploadContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/enums/MergeFlagEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/FileChunkMergePO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/FileChunkUploadPO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/vo/FileChunkUploadVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context/MergeFileContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context/ReadFileContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/local/initializer/UploadFolderAndChunksFolderInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/annotation/NeedShareCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/aspect/ShareCodeAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/config/TreadPoolConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event/file/FilePhysicalDeleteEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event/file/FileRestoreEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event/search/UserSearchEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event/test/TestEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/listenner/file/FilePhysicalDeleteEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/listenner/search/UserSearchEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/listenner/share/ShareStatusChangeListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/listenner/test/TestEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/schedule/launcher/CleanExpireFileChunkTaskLauncher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/schedule/launcher/RebuildShareSimpleDetailBloomFilterTaskLauncher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/schedule/task/CleanExpireChunkFileTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/schedule/task/RebuildShareSimpleDetailBloomFilterTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/utils/HttpUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/utils/ShareIdUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/CopyFileContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileChunkMergeAndSaveContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileChunkMergeContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileDownloadContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FilePreviewContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/FileSearchContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/QueryBreadcrumbsContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/QueryFolderTreeContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/QueryUploadedChunksContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context/TransferFileContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/CopyFilePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/FileSearchPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/QueryUploadedChunksPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/po/TransferFilePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/vo/BreadcrumbVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/vo/FileSearchResultVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/vo/FolderTreeNodeVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/vo/UploadedChunksVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/recycle/context/DeleteContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/recycle/context/QueryRecycleFileListContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/recycle/context/RestoreContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/recycle/controller/RecycleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/recycle/po/DeletePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/recycle/po/RestorePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/recycle/service/IRecycleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/recycle/service/impl/RecycleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/constants/ShareConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/CancelShareContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/CheckShareCodeContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/CreateShareUrlContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/QueryChildFileListContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/QueryShareDetailContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/QueryShareListContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/QueryShareSimpleDetailContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/SaveShareFilesContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/ShareFileDownloadContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/context/ShareSaveContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/controller/ShareController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/converter/ShareConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/enums/ShareDayTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/enums/ShareStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/enums/ShareTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/po/CancelSharePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/po/CheckShareCodePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/po/CreateShareUrlPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/po/ShareSavePO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/IShareFileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/IShareService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/cache/ShareCacheService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/impl/ShareFileServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/impl/ShareServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/vo/RPanShareUrlListVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/vo/RPanShareUrlVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/vo/ShareDetailVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/vo/ShareSimpleDetailVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/vo/ShareUserInfoVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/test/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/recycle/RecycleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/share/ShareTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/share/converter/ShareConverterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/631aa192-647e-4f8c-9d3f-b409008ce740.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/631aa192-647e-4f8c-9d3f-b409008ce740.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/constants/RPanConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/constants/RPanConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/response/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/response/ResponseCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/utils/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/AbstractStorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/AbstractStorageEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/StorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/StorageEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-fastdfs/src/main/java/com/imooc/pan/storage/engine/fastdfs/FastDFSStorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-fastdfs/src/main/java/com/imooc/pan/storage/engine/fastdfs/FastDFSStorageEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/local/LocalStorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-local/src/main/java/com/imooc/pan/storage/engine/local/LocalStorageEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/storage-engine/storage-engine-oss/src/main/java/com/imooc/storage/engine/oss/OSSStorageEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/storage-engine/storage-engine-oss/src/main/java/com/imooc/storage/engine/oss/OSSStorageEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/RPanServerLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/RPanServerLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/config/PanServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/config/PanServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/converter/FileConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/converter/FileConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/entity/RPanFileChunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/entity/RPanFileChunk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/RPanFileChunkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IFileChunkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/RPanFileChunkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/FileChunkServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/mapper/RPanUserFileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/mapper/RPanUserFileMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IUserFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/IUserFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/FileServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/UserFileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/UserFileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/entity/RPanShare.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/entity/RPanShare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/entity/RPanShareFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/entity/RPanShareFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/mapper/RPanShareMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/mapper/RPanShareMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/RPanShareFileService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/RPanShareService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/impl/RPanShareFileServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/share/service/impl/RPanShareServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/entity/RPanUserSearchHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/user/entity/RPanUserSearchHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/mappers/file/RPanUserFileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/file/RPanUserFileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/mappers/share/RPanShareMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/share/RPanShareMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/file/FileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/imooc/pan/server/modules/file/FileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/mappers/file/RPanUserFileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/mappers/file/RPanUserFileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/mappers/share/RPanShareMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/mappers/share/RPanShareMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/file/converter/FileConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/file/converter/FileConverterImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/user/converter/UserConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/generated-sources/annotations/com/imooc/pan/server/modules/user/converter/UserConverterImpl.java" afterDir="false" />
     </list>
@@ -51,6 +142,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="FileTest.uploadWithChunkTest" />
+    </enabled-run-configurations>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -71,12 +167,32 @@
     "Application.RPanServerLauncher.executor": "Debug",
     "JUnit.CaffeineCacheSpringTest.executor": "Run",
     "JUnit.FileTest.executor": "Run",
+    "JUnit.FileTest.getFolderTreeNodeVOListTest.executor": "Run",
+    "JUnit.FileTest.testCopyFileFail.executor": "Run",
+    "JUnit.FileTest.testCopyFileSuccess.executor": "Run",
     "JUnit.FileTest.testCreateFolderSuccess.executor": "Debug",
+    "JUnit.FileTest.testGetBreadcrumbsSuccess.executor": "Run",
+    "JUnit.FileTest.testQueryUploadedChunksSuccess.executor": "Debug",
+    "JUnit.FileTest.testSearchSuccess.executor": "Run",
     "JUnit.FileTest.testSecUploadFail.executor": "Debug",
     "JUnit.FileTest.testSecUploadSuccess.executor": "Debug",
+    "JUnit.FileTest.testTransferFileFail.executor": "Run",
+    "JUnit.FileTest.testTransferFileSuccess.executor": "Debug",
     "JUnit.FileTest.testUploadSuccess.executor": "Run",
+    "JUnit.FileTest.uploadWithChunkTest.executor": "Debug",
+    "JUnit.RecycleTest.executor": "Run",
+    "JUnit.RecycleTest.testFileRestoreSuccess.executor": "Run",
+    "JUnit.RecycleTest.testQueryRecyclesSuccess.executor": "Run",
     "JUnit.RedisCacheTest.executor": "Run",
     "JUnit.ScheduleTaskTest.executor": "Run",
+    "JUnit.ShareTest.cancelShareSuccess.executor": "Run",
+    "JUnit.ShareTest.checkShareCodeFail.executor": "Run",
+    "JUnit.ShareTest.checkShareCodeSuccess.executor": "Run",
+    "JUnit.ShareTest.createShareUrlSuccess.executor": "Run",
+    "JUnit.ShareTest.queryShareDetailSuccess.executor": "Run",
+    "JUnit.ShareTest.queryShareFileListSuccess.executor": "Run",
+    "JUnit.ShareTest.queryShareSimpleDetailSuccess.executor": "Run",
+    "JUnit.ShareTest.queryShareUrlListSuccess.executor": "Run",
     "JUnit.UserTest.checkAnswerFail.executor": "Debug",
     "JUnit.UserTest.checkAnswerSuccess.executor": "Debug",
     "JUnit.UserTest.checkUsernameSuccess.executor": "Run",
@@ -109,7 +225,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/weileipeng/r-pan/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context",
+    "last_opened_file_path": "/Users/weileipeng/r-pan/server/src/main/java/com/imooc/pan/server/modules",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -136,11 +252,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/framework/storage-engine/storage-engine-core/src/main/java/com/imooc/pan/storage/engine/core/context" />
-      <recent name="$PROJECT_DIR$/server/src/main/resources" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/listenner" />
+      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/event" />
       <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/common/config" />
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/context" />
-      <recent name="$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/enums" />
+      <recent name="$PROJECT_DIR$/framework/core/src/main/java/com/imooc/pan/core/constants" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/main/resources/mappers/log" />
@@ -151,81 +267,82 @@
       <recent name="com.imooc.pan.cache.caffeine.test.config" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FileTest.testUploadSuccess">
-    <configuration name="FileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.RPanServerLauncher">
+    <configuration name="ShareTest.checkShareCodeFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="r-pan-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.pan.server.modules.file.*" />
+          <option name="PATTERN" value="com.imooc.pan.server.modules.share.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.file" />
-      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.file.FileTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FileTest.testCreateFolderSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="r-pan-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.imooc.pan.server.modules.file.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.file" />
-      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.file.FileTest" />
-      <option name="METHOD_NAME" value="testCreateFolderSuccess" />
+      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.share" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.share.ShareTest" />
+      <option name="METHOD_NAME" value="checkShareCodeFail" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileTest.testSecUploadFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShareTest.checkShareCodeSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="r-pan-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.pan.server.modules.file.*" />
+          <option name="PATTERN" value="com.imooc.pan.server.modules.share.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.file" />
-      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.file.FileTest" />
-      <option name="METHOD_NAME" value="testSecUploadFail" />
+      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.share" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.share.ShareTest" />
+      <option name="METHOD_NAME" value="checkShareCodeSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileTest.testSecUploadSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShareTest.queryShareDetailSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="r-pan-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.pan.server.modules.file.*" />
+          <option name="PATTERN" value="com.imooc.pan.server.modules.share.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.file" />
-      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.file.FileTest" />
-      <option name="METHOD_NAME" value="testSecUploadSuccess" />
+      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.share" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.share.ShareTest" />
+      <option name="METHOD_NAME" value="queryShareDetailSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileTest.testUploadSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShareTest.queryShareFileListSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="r-pan-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.pan.server.modules.file.*" />
+          <option name="PATTERN" value="com.imooc.pan.server.modules.share.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.file" />
-      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.file.FileTest" />
-      <option name="METHOD_NAME" value="testUploadSuccess" />
+      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.share" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.share.ShareTest" />
+      <option name="METHOD_NAME" value="queryShareFileListSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShareTest.queryShareSimpleDetailSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="r-pan-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.pan.server.modules.share.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.imooc.pan.server.modules.share" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.pan.server.modules.share.ShareTest" />
+      <option name="METHOD_NAME" value="queryShareSimpleDetailSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -240,11 +357,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FileTest.testUploadSuccess" />
-        <item itemvalue="JUnit.FileTest" />
-        <item itemvalue="JUnit.FileTest.testSecUploadFail" />
-        <item itemvalue="JUnit.FileTest.testSecUploadSuccess" />
-        <item itemvalue="JUnit.FileTest.testCreateFolderSuccess" />
+        <item itemvalue="JUnit.ShareTest.queryShareFileListSuccess" />
+        <item itemvalue="JUnit.ShareTest.queryShareSimpleDetailSuccess" />
+        <item itemvalue="JUnit.ShareTest.queryShareDetailSuccess" />
+        <item itemvalue="JUnit.ShareTest.checkShareCodeFail" />
+        <item itemvalue="JUnit.ShareTest.checkShareCodeSuccess" />
       </list>
     </recent_temporary>
   </component>
@@ -264,7 +381,8 @@
       <option name="presentableId" value="Default" />
       <updated>1711995468513</updated>
       <workItem from="1712190544894" duration="114598000" />
-      <workItem from="1713466436488" duration="17209000" />
+      <workItem from="1713466436488" duration="30490000" />
+      <workItem from="1713595758073" duration="47726000" />
     </task>
     <task id="LOCAL-00001" summary=" working on user register">
       <option name="closed" value="true" />
@@ -284,6 +402,17 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value=" working on user register" />
     <option name="LAST_COMMIT_MESSAGE" value=" working on user register" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/com/imooc/pan/server/modules/file/service/impl/FileChunkServiceImpl.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

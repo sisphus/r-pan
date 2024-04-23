@@ -1,8 +1,10 @@
 package com.imooc.pan.server.modules.file.mapper;
 
+import com.imooc.pan.server.modules.file.context.FileSearchContext;
 import com.imooc.pan.server.modules.file.context.QueryFileListContext;
 import com.imooc.pan.server.modules.file.entity.RPanUserFile;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.imooc.pan.server.modules.file.vo.FileSearchResultVO;
 import com.imooc.pan.server.modules.file.vo.RPanUserFileVO;
 import org.apache.ibatis.annotations.Param;
 
@@ -21,6 +23,13 @@ public interface RPanUserFileMapper extends BaseMapper<RPanUserFile> {
      * @return
      */
     List<RPanUserFileVO> selectFileList(@Param("param") QueryFileListContext context);
+
+    /**
+     * 文件搜索
+     * @param context
+     * @return
+     */
+    List<FileSearchResultVO> searchFile(@Param("param") FileSearchContext context);
 }
 
 

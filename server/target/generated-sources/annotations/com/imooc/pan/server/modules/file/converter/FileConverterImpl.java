@@ -2,25 +2,33 @@ package com.imooc.pan.server.modules.file.converter;
 
 import com.imooc.pan.server.modules.file.context.CreateFolderContext;
 import com.imooc.pan.server.modules.file.context.DeleteFileContext;
+import com.imooc.pan.server.modules.file.context.FileChunkMergeAndSaveContext;
+import com.imooc.pan.server.modules.file.context.FileChunkMergeContext;
 import com.imooc.pan.server.modules.file.context.FileChunkSaveContext;
 import com.imooc.pan.server.modules.file.context.FileChunkUploadContext;
 import com.imooc.pan.server.modules.file.context.FileSaveContext;
 import com.imooc.pan.server.modules.file.context.FileUploadContext;
+import com.imooc.pan.server.modules.file.context.QueryUploadedChunksContext;
 import com.imooc.pan.server.modules.file.context.SecUploadFileContext;
 import com.imooc.pan.server.modules.file.context.UpdateFilenameContext;
+import com.imooc.pan.server.modules.file.entity.RPanUserFile;
 import com.imooc.pan.server.modules.file.po.CreateFolderPO;
 import com.imooc.pan.server.modules.file.po.DeleteFilePO;
+import com.imooc.pan.server.modules.file.po.FileChunkMergePO;
 import com.imooc.pan.server.modules.file.po.FileChunkUploadPO;
 import com.imooc.pan.server.modules.file.po.FileUploadPO;
+import com.imooc.pan.server.modules.file.po.QueryUploadedChunksPO;
 import com.imooc.pan.server.modules.file.po.SecUploadFilePO;
 import com.imooc.pan.server.modules.file.po.UpdateFilenamePO;
+import com.imooc.pan.server.modules.file.vo.FolderTreeNodeVO;
+import com.imooc.pan.server.modules.file.vo.RPanUserFileVO;
 import com.imooc.pan.storage.engine.core.context.StoreFileChunkContext;
 import javax.annotation.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-19T00:58:57-0700",
+    date = "2024-04-20T00:50:07-0700",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 1.8.0_402 (Amazon.com Inc.)"
 )
 @Component
@@ -182,5 +190,92 @@ public class FileConverterImpl implements FileConverter {
         storeFileChunkContext.setUserId( context.getUserId() );
 
         return storeFileChunkContext;
+    }
+
+    @Override
+    public QueryUploadedChunksContext queryUploadedChunksPO2QueryUploadedChunksContext(QueryUploadedChunksPO queryUploadedChunksPO) {
+        if ( queryUploadedChunksPO == null ) {
+            return null;
+        }
+
+        QueryUploadedChunksContext queryUploadedChunksContext = new QueryUploadedChunksContext();
+
+        queryUploadedChunksContext.setIdentifier( queryUploadedChunksPO.getIdentifier() );
+
+        queryUploadedChunksContext.setUserId( com.imooc.pan.server.common.utils.UserIdUtil.get() );
+
+        return queryUploadedChunksContext;
+    }
+
+    @Override
+    public FileChunkMergeContext fileChunkMergePO2FileChunkMergeContext(FileChunkMergePO fileChunkMergePO) {
+        if ( fileChunkMergePO == null ) {
+            return null;
+        }
+
+        FileChunkMergeContext fileChunkMergeContext = new FileChunkMergeContext();
+
+        fileChunkMergeContext.setFilename( fileChunkMergePO.getFilename() );
+        fileChunkMergeContext.setIdentifier( fileChunkMergePO.getIdentifier() );
+        fileChunkMergeContext.setTotalSize( fileChunkMergePO.getTotalSize() );
+
+        fileChunkMergeContext.setUserId( com.imooc.pan.server.common.utils.UserIdUtil.get() );
+        fileChunkMergeContext.setParentId( com.imooc.pan.core.utils.IdUtil.decrypt(fileChunkMergePO.getParentId()) );
+
+        return fileChunkMergeContext;
+    }
+
+    @Override
+    public FileChunkMergeAndSaveContext fileChunkMergeContext2FileChunkMergeAndSaveContext(FileChunkMergeContext context) {
+        if ( context == null ) {
+            return null;
+        }
+
+        FileChunkMergeAndSaveContext fileChunkMergeAndSaveContext = new FileChunkMergeAndSaveContext();
+
+        fileChunkMergeAndSaveContext.setFilename( context.getFilename() );
+        fileChunkMergeAndSaveContext.setIdentifier( context.getIdentifier() );
+        fileChunkMergeAndSaveContext.setTotalSize( context.getTotalSize() );
+        fileChunkMergeAndSaveContext.setParentId( context.getParentId() );
+        fileChunkMergeAndSaveContext.setUserId( context.getUserId() );
+        fileChunkMergeAndSaveContext.setRecord( context.getRecord() );
+
+        return fileChunkMergeAndSaveContext;
+    }
+
+    @Override
+    public FolderTreeNodeVO rPanUserFile2FolderTreeNodeVO(RPanUserFile record) {
+        if ( record == null ) {
+            return null;
+        }
+
+        FolderTreeNodeVO folderTreeNodeVO = new FolderTreeNodeVO();
+
+        folderTreeNodeVO.setLabel( record.getFilename() );
+        folderTreeNodeVO.setId( record.getFileId() );
+        folderTreeNodeVO.setParentId( record.getParentId() );
+
+        folderTreeNodeVO.setChildren( com.google.common.collect.Lists.newArrayList() );
+
+        return folderTreeNodeVO;
+    }
+
+    @Override
+    public RPanUserFileVO rPanUserFile2RPanUserFileVO(RPanUserFile record) {
+        if ( record == null ) {
+            return null;
+        }
+
+        RPanUserFileVO rPanUserFileVO = new RPanUserFileVO();
+
+        rPanUserFileVO.setFileId( record.getFileId() );
+        rPanUserFileVO.setParentId( record.getParentId() );
+        rPanUserFileVO.setFilename( record.getFilename() );
+        rPanUserFileVO.setFileSizeDesc( record.getFileSizeDesc() );
+        rPanUserFileVO.setFolderFlag( record.getFolderFlag() );
+        rPanUserFileVO.setFileType( record.getFileType() );
+        rPanUserFileVO.setUpdateTime( record.getUpdateTime() );
+
+        return rPanUserFileVO;
     }
 }

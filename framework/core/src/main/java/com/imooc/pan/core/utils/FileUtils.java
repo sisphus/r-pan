@@ -202,7 +202,7 @@ public class FileUtils {
 
     /**
      * 利用零拷贝技术读取文件内容并写入到文件的输出流中
-     *
+     * 核心技术
      * @param fileInputStream
      * @param outputStream
      * @param length
@@ -211,6 +211,7 @@ public class FileUtils {
     public static void writeFile2OutputStream(FileInputStream fileInputStream, OutputStream outputStream, long length) throws IOException {
         FileChannel fileChannel = fileInputStream.getChannel();
         WritableByteChannel writableByteChannel = Channels.newChannel(outputStream);
+        //零拷贝技术传输优化
         fileChannel.transferTo(RPanConstants.ZERO_LONG, length, writableByteChannel);
         outputStream.flush();
         fileInputStream.close();

@@ -15,9 +15,15 @@
       "defaultValue": 1
     },
     {
+      "name": "com.imooc.pan.server.server-port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.imooc.pan.server.common.config.PanServerConfig"
+    },
+    {
       "name": "com.imooc.pan.server.share-prefix",
       "type": "java.lang.String",
       "description": "分享链接的前缀",
+      "sourceType": "com.imooc.pan.server.common.config.PanServerConfig",
       "defaultValue": "http:\/\/127.0.0.1:serverPort\/share\/"
     }
   ],

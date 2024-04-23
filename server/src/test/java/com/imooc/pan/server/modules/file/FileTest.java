@@ -1,5 +1,6 @@
 package com.imooc.pan.server.modules.file;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.lang.Assert;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.google.common.collect.Lists;
@@ -8,13 +9,17 @@ import com.imooc.pan.core.utils.IdUtil;
 import com.imooc.pan.server.RPanServerLauncher;
 import com.imooc.pan.server.modules.file.context.*;
 import com.imooc.pan.server.modules.file.entity.RPanFile;
+import com.imooc.pan.server.modules.file.entity.RPanFileChunk;
 import com.imooc.pan.server.modules.file.enums.DelFlagEnum;
+import com.imooc.pan.server.modules.file.enums.MergeFlagEnum;
+import com.imooc.pan.server.modules.file.service.IFileChunkService;
 import com.imooc.pan.server.modules.file.service.IFileService;
 import com.imooc.pan.server.modules.file.service.IUserFileService;
-import com.imooc.pan.server.modules.file.vo.RPanUserFileVO;
+import com.imooc.pan.server.modules.file.vo.*;
 import com.imooc.pan.server.modules.user.context.UserRegisterContext;
 import com.imooc.pan.server.modules.user.service.IUserService;
 import com.imooc.pan.server.modules.user.vo.UserInfoVO;
+import lombok.AllArgsConstructor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 /**
         * 文件模块单元测试类
@@ -42,6 +48,9 @@ public class FileTest {
 
     @Autowired
     private IFileService iFileService;
+
+    @Autowired
+    private IFileChunkService iFileChunkService;
     /**
      * 测试用户查询文件列表成功
      */
@@ -375,14 +384,329 @@ public class FileTest {
         Assert.notEmpty(fileList);
         Assert.isTrue(fileList.size() == 1);
     }
+    /**
+     * 测试查询用户已上传的文件分片信息列表成功
+     */
+    @Test
+    public void testQueryUploadedChunksSuccess() {
+        Long userId = register();
+
+        String identifier = "123456789";
+
+        RPanFileChunk record = new RPanFileChunk();
+        record.setId(IdUtil.get());
+        record.setIdentifier(identifier);
+        record.setRealPath("realPath");
+        record.setChunkNumber(1);
+        record.setExpirationTime(DateUtil.offsetDay(new Date(), 1));
+        record.setCreateUser(userId);
+        record.setCreateTime(new Date());
+        boolean save = iFileChunkService.save(record);
+        Assert.isTrue(save);
+
+        QueryUploadedChunksContext context = new QueryUploadedChunksContext();
+        context.setIdentifier(identifier);
+        context.setUserId(userId);
+        UploadedChunksVO vo = iUserFileService.getUploadedChunks(context);
+        Assert.notNull(vo);
+        Assert.notEmpty(vo.getUploadedChunks());
+    }
 
 
+    /**
+     * 测试文件分片上传成功
+     */
+    @Test
+    public void uploadWithChunkTest() throws InterruptedException {
+        Long userId = register();
+        UserInfoVO userInfoVO = info(userId);
+
+        CountDownLatch countDownLatch = new CountDownLatch(10);
+        for (int i = 0; i < 10; i++) {
+            new ChunkUploader(countDownLatch, i + 1, 10, iUserFileService, userId, userInfoVO.getRootFileId()).start();
+        }
+        countDownLatch.await();
+    }
+
+    /**
+     * 测试文件夹树查询
+     */
+    @Test
+    public void getFolderTreeNodeVOListTest() {
+
+        Long userId = register();
+        UserInfoVO userInfoVO = info(userId);
+
+        CreateFolderContext context = new CreateFolderContext();
+        context.setParentId(userInfoVO.getRootFileId());
+        context.setUserId(userId);
+        context.setFolderName("folder-name-1");
+
+        Long fileId = iUserFileService.createFolder(context);
+        Assert.notNull(fileId);
+
+        context.setFolderName("folder-name-2");
+
+        fileId = iUserFileService.createFolder(context);
+        Assert.notNull(fileId);
+
+        context.setFolderName("folder-name-2-1");
+        context.setParentId(fileId);
+
+        iUserFileService.createFolder(context);
+        Assert.notNull(fileId);
+
+        QueryFolderTreeContext queryFolderTreeContext = new QueryFolderTreeContext();
+        queryFolderTreeContext.setUserId(userId);
+        List<FolderTreeNodeVO> folderTree = iUserFileService.getFolderTree(queryFolderTreeContext);
+
+        Assert.isTrue(folderTree.size() == 1);
+        folderTree.stream().forEach(FolderTreeNodeVO::print);
+    }
+
+    /**
+     * 测试文件转移成功
+     */
+    @Test
+    public void testTransferFileSuccess() {
+        Long userId = register();
+        UserInfoVO userInfoVO = info(userId);
+
+        CreateFolderContext context = new CreateFolderContext();
+        context.setParentId(userInfoVO.getRootFileId());
+        context.setUserId(userId);
+        context.setFolderName("folder-name-1");
+
+        Long folder1 = iUserFileService.createFolder(context);
+        Assert.notNull(folder1);
+
+        context.setFolderName("folder-name-2");
+        Long folder2 = iUserFileService.createFolder(context);
+        Assert.notNull(folder2);
+
+        TransferFileContext transferFileContext = new TransferFileContext();
+        transferFileContext.setTargetParentId(folder1);
+        transferFileContext.setFileIdList(Lists.newArrayList(folder2));
+        transferFileContext.setUserId(userId);
+        iUserFileService.transfer(transferFileContext);
+
+        QueryFileListContext queryFileListContext = new QueryFileListContext();
+        queryFileListContext.setParentId(userInfoVO.getRootFileId());
+        queryFileListContext.setUserId(userId);
+        queryFileListContext.setDelFlag(DelFlagEnum.NO.getCode());
+        List<RPanUserFileVO> records = iUserFileService.getFileList(queryFileListContext);
+        Assert.notEmpty(records);
+    }
+
+    /**
+     * 测试文件转移失败，目标文件夹是要转移的文件列表中的文件夹或者是其子文件夹
+     */
+    @Test(expected = RPanBusinessException.class)
+    public void testTransferFileFail() {
+        Long userId = register();
+        UserInfoVO userInfoVO = info(userId);
+
+        CreateFolderContext context = new CreateFolderContext();
+        context.setParentId(userInfoVO.getRootFileId());
+        context.setUserId(userId);
+        context.setFolderName("folder-name-1");
+
+        Long folder1 = iUserFileService.createFolder(context);
+        Assert.notNull(folder1);
+
+        context.setParentId(folder1);
+        context.setFolderName("folder-name-2");
+        Long folder2 = iUserFileService.createFolder(context);
+        Assert.notNull(folder2);
+
+        TransferFileContext transferFileContext = new TransferFileContext();
+        transferFileContext.setTargetParentId(folder2);
+        transferFileContext.setFileIdList(Lists.newArrayList(folder1));
+        transferFileContext.setUserId(userId);
+        iUserFileService.transfer(transferFileContext);
+    }
+
+    /**
+     * 测试文件复制成功
+     */
+    @Test
+    public void testCopyFileSuccess() {
+        Long userId = register();
+        UserInfoVO userInfoVO = info(userId);
+
+        CreateFolderContext context = new CreateFolderContext();
+        context.setParentId(userInfoVO.getRootFileId());
+        context.setUserId(userId);
+        context.setFolderName("folder-name-1");
+
+        Long folder1 = iUserFileService.createFolder(context);
+        Assert.notNull(folder1);
+
+        context.setFolderName("folder-name-2");
+        Long folder2 = iUserFileService.createFolder(context);
+        Assert.notNull(folder2);
+
+        CopyFileContext copyFileContext = new CopyFileContext();
+        copyFileContext.setTargetParentId(folder1);
+        copyFileContext.setFileIdList(Lists.newArrayList(folder2));
+        copyFileContext.setUserId(userId);
+        iUserFileService.copy(copyFileContext);
+
+        QueryFileListContext queryFileListContext = new QueryFileListContext();
+        queryFileListContext.setParentId(folder1);
+        queryFileListContext.setUserId(userId);
+        queryFileListContext.setDelFlag(DelFlagEnum.NO.getCode());
+        List<RPanUserFileVO> records = iUserFileService.getFileList(queryFileListContext);
+        Assert.notEmpty(records);
+    }
+
+    /**
+     * 测试文件复制失败，目标文件夹是要转移的文件列表中的文件夹或者是其子文件夹
+     */
+    @Test(expected = RPanBusinessException.class)
+    public void testCopyFileFail() {
+        Long userId = register();
+        UserInfoVO userInfoVO = info(userId);
+
+        CreateFolderContext context = new CreateFolderContext();
+        context.setParentId(userInfoVO.getRootFileId());
+        context.setUserId(userId);
+        context.setFolderName("folder-name-1");
+
+        Long folder1 = iUserFileService.createFolder(context);
+        Assert.notNull(folder1);
+
+        context.setParentId(folder1);
+        context.setFolderName("folder-name-2");
+        Long folder2 = iUserFileService.createFolder(context);
+        Assert.notNull(folder2);
+
+        CopyFileContext copyFileContext = new CopyFileContext();
+        copyFileContext.setTargetParentId(folder2);
+        copyFileContext.setFileIdList(Lists.newArrayList(folder1));
+        copyFileContext.setUserId(userId);
+        iUserFileService.copy(copyFileContext);
+    }
+
+    /**
+     * 测试文件搜索成功
+     */
+    @Test
+    public void testSearchSuccess() {
+        Long userId = register();
+        UserInfoVO userInfoVO = info(userId);
+
+        CreateFolderContext context = new CreateFolderContext();
+        context.setParentId(userInfoVO.getRootFileId());
+        context.setUserId(userId);
+        context.setFolderName("folder-name-1");
+
+        Long folder1 = iUserFileService.createFolder(context);
+        Assert.notNull(folder1);
+
+        FileSearchContext fileSearchContext = new FileSearchContext();
+        fileSearchContext.setUserId(userId);
+        fileSearchContext.setKeyword("folder-name");
+        List<FileSearchResultVO> result = iUserFileService.search(fileSearchContext);
+        Assert.notEmpty(result);
+
+        fileSearchContext.setKeyword("name-1");
+        result = iUserFileService.search(fileSearchContext);
+        Assert.isTrue(org.apache.commons.collections.CollectionUtils.isEmpty(result));
+    }
+
+    /**
+     * 测试查询文件面包屑导航列表成功
+     */
+    @Test
+    public void testGetBreadcrumbsSuccess() {
+        Long userId = register();
+        UserInfoVO userInfoVO = info(userId);
+
+        CreateFolderContext context = new CreateFolderContext();
+        context.setParentId(userInfoVO.getRootFileId());
+        context.setUserId(userId);
+        context.setFolderName("folder-name-1");
+
+        Long folder1 = iUserFileService.createFolder(context);
+        Assert.notNull(folder1);
+
+        QueryBreadcrumbsContext queryBreadcrumbsContext = new QueryBreadcrumbsContext();
+        queryBreadcrumbsContext.setFileId(folder1);
+        queryBreadcrumbsContext.setUserId(userId);
+
+        List<BreadcrumbVO> result = iUserFileService.getBreadcrumbs(queryBreadcrumbsContext);
+        Assert.notEmpty(result);
+        Assert.isTrue(result.size() == 2);
+    }
     /************************************************private************************************************/
 
     private final static String USERNAME = "qwnb123";
     private final static String PASSWORD = "123456789";
     private final static String QUESTION = "question";
     private final static String ANSWER = "answer";
+
+    /**
+     * 文件分片上传器
+     */
+    @AllArgsConstructor
+    private static class ChunkUploader extends Thread {
+
+        private CountDownLatch countDownLatch;
+
+        private Integer chunk;
+
+        private Integer chunks;
+
+        private IUserFileService iUserFileService;
+
+        private Long userId;
+
+        private Long parentId;
+
+        /**
+         * 1、上传文件分片
+         * 2、根据上传的结果来调用文件分片合并
+         */
+        @Override
+        public void run() {
+            super.run();
+            MultipartFile file = genarateMultipartFile();
+            Long totalSize = file.getSize() * chunks;
+            String filename = "test.txt";
+            String identifier = "123456789";
+
+            FileChunkUploadContext fileChunkUploadContext = new FileChunkUploadContext();
+            fileChunkUploadContext.setFilename(filename);
+            fileChunkUploadContext.setIdentifier(identifier);
+            fileChunkUploadContext.setTotalChunks(chunks);
+            fileChunkUploadContext.setChunkNumber(chunk);
+            fileChunkUploadContext.setCurrentChunkSize(file.getSize());
+            fileChunkUploadContext.setTotalSize(totalSize);
+            fileChunkUploadContext.setFile(file);
+            fileChunkUploadContext.setUserId(userId);
+
+            FileChunkUploadVO fileChunkUploadVO = iUserFileService.chunkUpload(fileChunkUploadContext);
+
+            if (fileChunkUploadVO.getMergeFlag().equals(MergeFlagEnum.READY.getCode())) {
+                System.out.println("分片 " + chunk + " 检测到可以合并分片");
+
+                FileChunkMergeContext fileChunkMergeContext = new FileChunkMergeContext();
+                fileChunkMergeContext.setFilename(filename);
+                fileChunkMergeContext.setIdentifier(identifier);
+                fileChunkMergeContext.setTotalSize(totalSize);
+                fileChunkMergeContext.setParentId(parentId);
+                fileChunkMergeContext.setUserId(userId);
+
+                iUserFileService.mergeFile(fileChunkMergeContext);
+                countDownLatch.countDown();
+            } else {
+                countDownLatch.countDown();
+            }
+
+        }
+
+    }
 
     /**
      * 用户注册
@@ -431,8 +755,8 @@ public class FileTest {
         MultipartFile file = null;
         try {
             StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < 1024 * 1024; i++) {
-                stringBuffer.append("a");
+            for (int i = 0; i < 1024 * 102; i++) {
+                stringBuffer.append("test ");
             }
             file = new MockMultipartFile("file", "test.txt", "multipart/form-data", stringBuffer.toString().getBytes("UTF-8"));
         } catch (Exception e) {

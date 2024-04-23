@@ -3,8 +3,7 @@ package com.imooc.pan.server.modules.file.service;
 import com.imooc.pan.server.modules.file.context.*;
 import com.imooc.pan.server.modules.file.entity.RPanUserFile;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.imooc.pan.server.modules.file.vo.FileChunkUploadVO;
-import com.imooc.pan.server.modules.file.vo.RPanUserFileVO;
+import com.imooc.pan.server.modules.file.vo.*;
 
 import java.util.List;
 
@@ -35,4 +34,47 @@ public interface IUserFileService extends IService<RPanUserFile> {
     void upload(FileUploadContext context);
 
     FileChunkUploadVO chunkUpload(FileChunkUploadContext context);
+
+    UploadedChunksVO getUploadedChunks(QueryUploadedChunksContext context);
+
+    void mergeFile(FileChunkMergeContext context);
+
+    void download(FileDownloadContext context);
+
+    void preview(FilePreviewContext context);
+
+    List<FolderTreeNodeVO> getFolderTree(QueryFolderTreeContext context);
+
+    void transfer(TransferFileContext context);
+
+    void copy(CopyFileContext context);
+
+    List<FileSearchResultVO> search(FileSearchContext context);
+
+    List<BreadcrumbVO> getBreadcrumbs(QueryBreadcrumbsContext context);
+
+    List<RPanUserFile> findAllFileRecords(List<RPanUserFile> records);
+
+    /**
+     * 递归查询所有的子文件信息
+     *
+     * @param fileIdList
+     * @return
+     */
+    List<RPanUserFile> findAllFileRecordsByFileIdList(List<Long> fileIdList);
+
+    /**
+     * 实体转换
+     *
+     * @param records
+     * @return
+     */
+    List<RPanUserFileVO> transferVOList(List<RPanUserFile> records);
+
+    /**
+     * 文件下载 不校验用户是否是否是上传用户
+     *
+     * @param context
+     */
+    void downloadWithoutCheckUser(FileDownloadContext context);
 }
