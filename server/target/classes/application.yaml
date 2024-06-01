@@ -24,7 +24,7 @@ mybatis-plus:
   mapper-locations: classpath:mappers/**/*.xml
 
 server:
-  port: 8080
+  port: 8082
 
 management:
   endpoints:
@@ -44,3 +44,17 @@ swagger2:
   contact-url: https://blog.rubinchu.com
   contact-email: daemonwei123@gmail.com
   version: 1.0
+
+com:
+  imooc:
+    pan:
+      server:
+        share-prefix: http://127.0.0.1:5173/share/
+      bloom:
+        filter:
+          local:
+            items:
+              - name: SHARE_SIMPLE_DETAIL
+                funnel-type-name: LONG
+                expected-insertions: 10000000
+                fpp: 0.01

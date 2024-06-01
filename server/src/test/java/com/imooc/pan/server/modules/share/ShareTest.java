@@ -35,7 +35,7 @@ import java.util.Objects;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = RPanServerLauncher.class)
-@Transactional
+//@Transactional
 public class ShareTest {
 
     @Autowired
@@ -301,18 +301,18 @@ public class ShareTest {
         Assert.notEmpty(fileVOList);
     }
 
-//    @Test
-//    public void init() {
-//        CreateShareUrlContext context = new CreateShareUrlContext();
-//        context.setUserId(1664949523080634368L);
-//        context.setShareType(ShareTypeEnum.NEED_SHARE_CODE.getCode());
-//        context.setShareDayType(ShareDayTypeEnum.PERMANENT_VALIDITY.getCode());
-//        context.setShareFileIdList(Lists.newArrayList(1664950147318898688L));
-//        for (int i = 0; i < 100000; i++) {
-//            context.setShareName("测试分享" + i);
-//            iShareService.create(context);
-//        }
-//    }
+    @Test
+    public void init() {
+        CreateShareUrlContext context = new CreateShareUrlContext();
+        context.setUserId(1790242024398381056L);
+        context.setShareType(ShareTypeEnum.NEED_SHARE_CODE.getCode());
+        context.setShareDayType(ShareDayTypeEnum.PERMANENT_VALIDITY.getCode());
+        context.setShareFileIdList(Lists.newArrayList(1790242920909889536L));
+        for (int i = 0; i < 10000000; i++) {
+            context.setShareName("测试分享" + i);
+            iShareService.create(context);
+        }
+    }
 
     /************************************************private************************************************/
 

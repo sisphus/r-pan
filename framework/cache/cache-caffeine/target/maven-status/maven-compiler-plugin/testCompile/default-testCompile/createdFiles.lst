@@ -1,0 +1,5 @@
+META-INF/spring-configuration-metadata.json
+com/imooc/pan/cache/caffeine/test/config/CaffeineCacheConfig.class
+com/imooc/pan/cache/caffeine/test/instance/CacheAnnotationTester.class
+com/imooc/pan/cache/caffeine/test/config/CaffeineCacheProperties.class
+com/imooc/pan/cache/caffeine/test/CaffeineCacheSpringTest.class

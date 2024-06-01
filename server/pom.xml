@@ -53,6 +53,11 @@
             <artifactId>r-pan-schedule</artifactId>
             <version>1.0</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.imooc.pan</groupId>-->
+<!--            <artifactId>r-pan-cache-caffeine</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.imooc.pan</groupId>
             <artifactId>r-pan-cache-redis</artifactId>
@@ -71,6 +76,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.imooc.pan</groupId>
+            <artifactId>r-pan-bloom-filter-local</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
 

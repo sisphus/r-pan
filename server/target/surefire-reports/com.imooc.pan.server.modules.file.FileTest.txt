@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.imooc.pan.server.modules.file.FileTest
+-------------------------------------------------------------------------------
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.4 s - in com.imooc.pan.server.modules.file.FileTest
